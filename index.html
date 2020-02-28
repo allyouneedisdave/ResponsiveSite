@@ -1,0 +1,44 @@
+<!doctype html>
+<html><head>
+<meta charset="utf-8">
+	<meta name="viewport" content=" initial-scale=1.0"/>
+	<link rel="stylesheet" href="css/reset.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+	<link href="css/lightbox.css" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Baumans|Open+Sans&display=swap" rel="stylesheet">
+	<script src="js/modernizr-custom.min.js"></script>
+	<script src="js/respond.js"></script>
+	<!-- include external jQuery file but fall back to local file if external one fails to load !-->
+	<script  src="https://code.jquery.com/jquery-3.4.1.min.js"  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="  crossorigin="anonymous"></script> 
+	<script type="text/javascript">window.jQuery || document.write('<script type="text\/JavaScript" src="js\/jquery-3.4.1.mi.js"><\/script>')</script>
+	<script src="js/lightbox.js"></script>
+	<script src="js/prefixfree.min.js"></script>
+	<script src="js/jquery.slides.min.js"></script>
+<title>Responsive website</title>
+</head>
+<body>
+	<header>
+	<h1>Interactive Media Development</h1>
+	<p>A responsive website tutorial</p>
+	<nav>
+		<ul>
+			<li><a href="#">Home</a></li>
+			<li><a href="#">Portfolio</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Contact</a></li>
+		</ul>
+		</nav>
+	</header>
+	<section class="container">
+		<h2 class="hidden">Slider</h2>
+		<article id="slider_content1"></article>
+		<article id="slider_content2"></article>
+		<article id="slider_content3"></article>
+		<div id="slides">
+			<img src="img/slide1.jpg" alt="Some alt text">
+			<img src="img/slide2.jpg" alt="Some alt text">
+			<img src="img/slide3.jpg" alt="Some alt text">
+		</div>
+	</section>
+</body>
+</html>
