@@ -67,7 +67,11 @@ header p {
 	color: #4A463B;
 	margin-left: 132px;
 }
-
+nav {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
 
 nav ul {
 	list-style: none;
@@ -123,6 +127,24 @@ nav ul li a:hover {
 	background-color: #EBE8DE;
 	padding: 10px 15px;
 	border-radius: 5px;
+}
+.button {
+	padding: 7px; 14px;
+	border: 1px solid #c3532e;
+	background-image: linear-gradient(bottom, #E56038 0%, #ff8c66 100%);
+	background-image: linear-gradient(to bottom, #ff8c66 0%, #E56038 100%);
+	background-color: #eb653c;
+	color: #EBE8DE;
+	text-shadow: 1px 1px 0px #ff8155;
+	text-decoration: none;
+	border-radius: 5px;
+	box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.3);
+}
+.button:hover {
+	background: none #EBE8DE;
+	border-color: #EBE8DE;
+	text-shadow:none;
+	color: #4A463B;
 }
 #spacer {
 	width: auto;
@@ -186,6 +208,31 @@ nav ul li a:hover {
 	padding: 20px 0;
 	margin-bottom: 20px;
 }
+
+/*
+#four_columns article {
+	float: left;
+	width: 250px;
+	margin-right: 45px;
+	font-size: 14px;
+}
+#four_columns article h3 {
+	font-family: 'Open Sans'. sans-serif;
+	font-size: 20px;
+	margin-bottom: 10px;
+	margin-left: 75px;
+}
+#four_columns article img {
+	float: left;
+}
+#four_columns article p {
+	line-height: 25px;
+	font-family: 'Open Sans', sans-serif;
+	margin-left: 75px;
+}
+*/
+
+
 .thumb-screen {
 	display: block;
 	position: absolute;
@@ -201,22 +248,151 @@ nav ul li a:hover {
 .thumb-screen:hover {
 	opacity: 0.5;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#text_columns article.column1, #text_columns .column2 {
+	margin: 70px 0;
+	font-size: 14px;
+	float: left;
+	width: 450px;
+}
+#text_columns .column2 {
+	margin: 120px 0;
+}
+.row {
+	position: relative;
+	margin: 40px 0 0 50px;
+	float: right;
+	width: 350px;
+}
+.rocket:hover {
+	opacity: 0;
+	transition: opacity 0.4s ease 0.2s;
+	animation-name: style-transform-keyframes;
+	animation-duration: 700ms;
+	animation-delay: 0ms;
+	animation-fill-mode: forwards;
+	animation-timing-function: linear;
+	animation-iteration-count: 1;
+	transform-origin: 0 0;
+}
+.clock:hover {
+	animation-name: stylie-transform2-keyframes;
+	animation-duration: 100ms;
+	animation-delay: 0ms;
+	animation-fill-mode: forwards;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	transform-origin: 0 0;
+}
+/* KEYFRAMES */
+@keyframes stylie-transform-keyframes {
+	0% {
+		transform: translateX(30px) translateY(46px) rotate(0deg) translate(-50%, -50%);
+		animation-timing-function: cubic-bezier(.25, .25, .75, .75);
+	}
+	100% {
+		transform: translateX(260px) translateY(-150px) rotate(0deg) translate(-50%, -50%);
+	}
+}
+@keyframes stylie-transform2-keyframes {
+	0% {
+		transform: translateX(40px) translateY(40px) rotate(0deg) translate(-50%, -50%);
+		animation-timing-function: cubic-bezier(.25, .25, .75, .75);
+	}
+	100% {
+		transform: translateX(50px) translateY(40px) rotate(0deg) translate(-50%, -50%);
+	}
+}
+footer {
+	position: relative;
+	clear: both;
+	width: auto;
+	height: 350px;
+	background: #333333;
+}
+footer .wrapper {
+	line-height: 25px;
+	margin: 0 auto;
+	padding-top: 30px;
+	width: auto;
+	max-width: 900px;
+	font-size: 14px;
+}
+footer .wrapper .column {
+	font-family: 'Open Sans', sans-serif;
+	color: #ababab;
+	float: left;
+	width: 280px;
+	margin-right: 20px;
+}
+footer .wrapper .column.midlist ul li a:hover {
+	color: #fff;
+}
+footer .wrapper .column.rightlist ul li {
+	width: auto;
+	margin-bottom: 15px;
+}
+footer .wrapper .column.rightlist ul li a span {
+	margin-left: 95px;
+	display: block;
+}
+footer .wrapper .column.rightlist ul li a img {
+	transition: border .25s ease;
+	float: left;
+	border: 3px solid #444444;
+}
+footer .wrapper .column.rightlist ul li a img:hover {
+	border-color: 5e5e5e;
+}
+footer .wrapper .column h4 {
+	font-size: 16px;
+	color: #fff;
+	border-bottom: 1px solid #444444;
+	padding: 0 0 10px 0;
+}
+#copyright {
+	background: #1D1D1D;
+	height: 70px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+}
+#copyright .wrapper {
+	font-family: 'Open Sans', sans-serif;
+	padding-top: 25px;
+	color: #5e5e5e;
+	font-size: 14px;
+	position: relative;
+}
+#copyright .wrapper .social {
+	position: absolute;
+	right: 0;
+	top: 25px;
+}
+#copyright .wrapper .social a {
+	transition: opacity .25s ease;
+	opacity: 0.3;
+	margin-left: 12px;
+	display: block;
+	float: left;
+}
+#copyright .wrapper .social a:hover {
+	opacity: 0.7;
+}
+#copyright .wrapper a {
+	color: #ABABAB;
+}
+#copyright .wrapper a:hover {
+	color: #fff;
+}
+.clear {
+	clear: both;
+}
+.hidden {
+	position: absolute;
+	clip: rect(1px 1px 1px 1px); /* IE6 & 7 */
+	clip: rect(1px, 1px, 1px, 1px);
+}
 
 
 
