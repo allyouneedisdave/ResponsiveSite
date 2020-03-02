@@ -62,7 +62,58 @@
 					});
 				})
 				(jQuery, window, document);
+			
+			//Form control
+			$(function() {
+				//Get the form.
+				var form = $('ajax-contact');
+				
+				// Get the messages div.
+				var formMessages = $('ajax-contact');
+				
+				// TODO: The rest of the code will go here...
 			});
+			// Set up an event listener for the contact form.
+			$(form).submit(function(event) {
+				//Stop the browser from submitting the form.
+				event.preventDefault();
+				
+				//Serialize the form data.
+				var formData = $(form).serialize();
+				
+				// Submit the form using AJAX.
+				$.ajax({
+					type: 'POST',
+					url: $(form).attr('action'),
+					data: formData
+				})
+				.done(function(response) {
+					//Make sure that the formMessages div has the 'success' class.
+					$(formMessages).removeClass('error');
+					$(formMessages).addClass('success');
+					
+					//Set the message text.
+					$(formMessages).text(response);
+					
+					//Clear the form.
+					$('#name').val('');
+					$('#email').val('');
+					$('#message').val('');
+				})
+				.fail(function(data) {
+					//Make sure that the formMessages div has the 'error' class.
+					$(formMessages).removeClass('success');
+					$(formMessages).addClass('error');
+					
+					//Set the message text.
+					if (data.responseText !== '') {
+						$(formMessages).text(data.responseText);
+					} else {
+						$(formMessages).text('Oops! An error occured and your message could not be sent.');
+					}
+				});
+			});
+		});
 
 	</script>
 <title>Responsive website</title>
@@ -76,20 +127,20 @@
 		</div>
 		<div id="mobileMenu">
 			<ul>
-				<li><a href="#">Home</a></li>
+				<li><a href="index.html">Home</a></li>
 				<li><a href="#">Portfolio</a></li>
 				<li><a href="#">About</a></li>
-				<li><a href="contact.html">Contact</a></li>
+				<li><a href="#">Contact</a></li>
 			</ul>
 		</div>
 	<h1>Interactive Media Development</h1>
 	<p>A responsive website tutorial</p>
 	<nav>
 		<ul>
-			<li><a href="#">Home</a></li>
+			<li><a href="index.html">Home</a></li>
 			<li><a href="#">Portfolio</a></li>
 			<li><a href="#">About</a></li>
-			<li><a href="contact.html">Contact</a></li>
+			<li><a href="#">Contact</a></li>
 		</ul>
 		</nav>
 	</header>
@@ -133,100 +184,31 @@
 		</div>
 	</section>
 	<section id="boxcontent">
-		<h2 class="hidden">Box content section</h2>
+		<h2 class="hidden">Contact</h2>
 		<article>
-			<img src="img/some_icon.png" alt="alt text"/>
-			<h3>This is a header</h3>
-			<p>This is the text for the article section</p>
-		</article>
-		<article>
-			<img src="img/some_icon.png" alt="alt text"/>
-			<h3>This is a header</h3>
-			<p>This is the text for the article section</p>
-		</article>
-		<article>
-			<img src="img/some_icon.png" alt="alt text"/>
-			<h3>This is a header</h3>
-			<p>This is the text for the article section</p>
+			<div id="form-messages"></div>
+			<form id="ajax-contact" method="post" action="mailer.php">
+				<div class="field">
+					<label for="name">Name:</label>
+					<input type="text" id="name" name="name" required>
+				</div>
+				
+				<div class="field">
+					<label for="email">Email:</label>
+					<input type="email" id=email name="email" required>
+				</div>
+				
+				<div class="field">
+					<label for="message">Message:</label>
+					<textarea id="message" name="message" required></textarea>
+				</div>
+				
+				<div class="field">
+					<button type="submit">Send</button>
+				</div>
+			</form>
 		</article>
 		<br class="clear"/>
-	</section>
-	<section id="four_columns">
-		<h2>Heading</h2>
-		<article class="img-item">
-			<h3 class="hidden">Dolor sit amet</h3>
-			<figure>
-				<a href="img/example-slide-1.jpg" rel="lightbox" title="Some Title">
-					<span class="thumb-screen"></span>
-					<img src="img/example-slide-1sml.jpg" alt="Some alt text"/>
-				</a>
-				<figcaption>
-					<strong>Photo by: Some Name</strong>
-					Some text for the image.
-				</figcaption>
-			</figure>
-		</article>
-		<article class="img-item">
-			<h3 class="hidden">Header</h3>
-			<figure>
-				<a href="img/example-slide-2.jpg" rel="lightbox" title="Some title">
-					<span class="thumb-screen"></span>
-					<img src="img/example-slide-2sml.jpg" alt="Some alt text"/>
-				</a>
-				<figcaption>
-					<strong>Photo by: Some Name</strong>
-					Some text for the image.
-				</figcaption>
-			</figure>
-		</article>
-		<article class="img-item">
-			<h3 class="hidden">Dolor Sit</h3>
-			<figure>
-				<a href="img/example-slide-3.jpg" rel="lightbox" title="Some Title">
-					<span class="thumb-screen"></span>
-					<img src="img/example-slide-3sml.jpg" alt="Some alt text"/>
-				</a>
-				<figcaption>
-					<strong>Photo by: Some Name</strong>
-					Some text for the image.
-				</figcaption>
-			</figure>
-		</article>
-		<article class="img-item">
-			<h3 class="hidden">Header</h3>
-			<figure>
-				<a href="img/example-slide-4.jpg" rel="lightbox" title="Some Title">
-					<span class="thumb-screen"></span>
-					<img src="img//example-slide-4sml.jpg" alt="Some alt text"/>
-				</a>
-				<figcaption>
-					<strong>Photo by: Some Name</strong>
-					Some text for the image..
-				</figcaption>
-			</figure>
-		</article>
-		<br class="clear"/>
-	</section>
-	<section id="text_columns">
-		<h2 class="hidden">Blindtext</h2>
-		<article class="column1">
-			<h3>Column 1 header</h3>
-			<p>Column 1 paragraphs</p>
-			<p>Another column 1 paragraph</p>
-		</article>
-		<section class="column2">
-			<h3 class="hidden">Column 2 header</h3>
-			<article class="row">
-				<h4 class="hidden">Text</h4>
-				<img src="img/icon4.png" width="80" class="rocket" alt="Some alt text"/>
-				<p>Column two paragraph</p>
-			</article>
-			<article class="row">
-				<h4 class="hidden">Text</h4>
-				<img src="img/icon5.png" width="80" class="clock" alt="Some alt text"/>
-				<p>Another olumn 2 paragraph</p>
-			</article>
-		</section>
 	</section>
 	<footer>
 		<h2 class="hidden">Our footer</h2>
@@ -249,6 +231,7 @@
 				<h4>Left footer header</h4>
 				Footer text.
 			</article>
+
 			<article class="column midlist">
 				<h4>Middle footer header</h4>
 				<ul>
